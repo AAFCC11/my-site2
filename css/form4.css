@@ -1,0 +1,40 @@
+body{
+    background-color: rgb(10, 65, 73);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    text-align: center;}
+    .button-36 {
+  background-color: #4286cf; /* Зелёная кнопка */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px; /* <-- Вот здесь меняется форма */
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.button-36:hover {
+  background-color: #1a36a5;
+}
+body {
+  font-family: "Verdana", sans-serif;
+  font-size: 25px;
+}
+.styled-input {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  width: 250px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.styled-input:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 8px rgba(1, 247, 255, 0.3);
+}

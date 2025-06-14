@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/form4.css">
+    <style>
+        ul{
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Список столиць:</h2>
+    <ul id="capitalList"><li>Варшава - 1796000 нас.</li><li>Париж - 2141000 нас.</li><li>Київ - 2804000 нас.</li><li>Берлін - 3645000 нас.</li><li>Лондон - 8982000 нас.</li></ul>
+
+    <div>
+        <label for="sortType">Виберіть принцип сортування:</label>
+        <select id="sortType" onchange="sortCapitals()">
+            <option value="alphabet">За алфавітом</option>
+            <option value="population">За кількістю населення</option>
+        </select>
+    </div>
+
+    <script>
+        // Об'єкт зі столицями та їх кількістю населення
+        var capitals = {
+            "Київ": 2804000,
+            "Варшава": 1796000,
+            "Берлін": 3645000,
+            "Париж": 2141000,
+            "Лондон": 8982000,
+            // Додайте інші столиці за потребою
+        };
+
+        // Функція для створення та відображення списку столиць
+        function displayCapitalList() {
+            var capitalList = document.getElementById("capitalList");
+            capitalList.innerHTML = "";
+
+            Object.keys(capitals).forEach(function (capital) {
+                var listItem = document.createElement("li");
+                listItem.textContent = capital + " - " + capitals[capital] + " нас.";
+                capitalList.appendChild(listItem);
+            });
+        }
+
+        // Функція для сортування за алфавітом
+        function sortAlphabetically() {
+            displayCapitalList();
+            var capitalList = document.getElementById("capitalList");
+            capitalList.innerHTML = "";
+            Object.keys(capitals).sort().forEach(function (capital) {
+                var listItem = document.createElement("li");
+                listItem.textContent = capital + " - " + capitals[capital] + " нас.";
+                capitalList.appendChild(listItem);
+            });
+        }
+
+        // Функція для сортування за кількістю населення
+        function sortByPopulation() {
+            displayCapitalList();
+            var capitalList = document.getElementById("capitalList");
+            capitalList.innerHTML = "";
+            Object.keys(capitals).sort(function (a, b) {
+                return capitals[a] - capitals[b];
+            }).forEach(function (capital) {
+                var listItem = document.createElement("li");
+                listItem.textContent = capital + " - " + capitals[capital] + " нас.";
+                capitalList.appendChild(listItem);
+            });
+        }
+
+        // Функція для визначення принципу сортування та виклику відповідної функції
+        function sortCapitals() {
+            var sortType = document.getElementById("sortType").value;
+            if (sortType === "alphabet") {
+                sortAlphabetically();
+            } else if (sortType === "population") {
+                sortByPopulation();
+            }
+        }
+
+        // Відображення списку при завантаженні сторінки
+        displayCapitalList();
+    </script>
+
+
+
+</body>
+</html>

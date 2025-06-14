@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Зарплата</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: rgb(10, 65, 73);
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .salary-block {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #000000;
+    }
+
+    input[type="number"] {
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      width: 250px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    input[type="number"]:focus {
+      border-color: #007BFF;
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+    }
+
+    .button-36 {
+      background-color: #0e0245;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-36:hover {
+      background-color: #010cdf;
+    }
+
+    #result {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Зарплата</h1>
+
+  <div class="salary-block">
+    <label for="zhenya">Зарплата Івана</label>
+    <input type="number" id="zhenya" class="styled-input">
+  </div>
+
+  <div class="salary-block">
+    <label for="ivan">Зарплата Марії</label>
+    <input type="number" id="ivan" class="styled-input">
+  </div>
+
+  <div class="salary-block">
+    <label for="olena">Зарплата Іванни</label>
+    <input type="number" id="olena" class="styled-input">
+  </div>
+
+  <div class="salary-block">
+    <label for="andriy">Зарплата Лії</label>
+    <input type="number" id="andriy" class="styled-input">
+  </div>
+
+  <button class="button-36" id="checkBtn">Хто отримає найбільше?</button>
+
+  <div id="result"></div>
+
+  <script>
+    document.getElementById("checkBtn").addEventListener("click", findMaxSalary);
+
+    function findMaxSalary() {
+      const salaries = {
+        Іван: parseFloat(document.getElementById("zhenya").value) || 0,
+        Марія: parseFloat(document.getElementById("ivan").value) || 0,
+        Іванна: parseFloat(document.getElementById("olena").value) || 0,
+        Лія: parseFloat(document.getElementById("andriy").value) || 0
+      };
+
+      let maxName = "";
+      let maxValue = 0;
+
+      for (const [name, salary] of Object.entries(salaries)) {
+        if (salary > maxValue) {
+          maxValue = salary;
+          maxName = name;
+        }
+      }
+
+      document.getElementById("result").innerText =
+        maxValue > 0
+          ? `${maxName} повинен(на) отримувати найбільше — ${maxValue} грн.`
+          : "Будь ласка, введи значення для хоча б одного поля.";
+    }
+  </script>
+</body>
+</html>

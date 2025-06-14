@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Таблиця множення</title>
+ <link rel="stylesheet" href="css/form4.css">
+</head>
+<body>
+  <h2>Таблиця множення</h2>
+  <label for="number">Введіть число:</label><br>
+  <input type="number" id="number" class="styled-input" placeholder="" min="1"><br><br>
+  <button class="button-36" onclick="showMultiplicationTable()">Виконати</button>
+
+  <h3>Результат:</h3>
+  <ul id="result"></ul>
+
+  <script>
+    function showMultiplicationTable() {
+      const num = parseInt(document.getElementById('number').value);
+      const resultArea = document.getElementById('result');
+      resultArea.innerHTML = '';
+
+      if (isNaN(num)) {
+        resultArea.innerHTML = '<li>Будь ласка, введіть число.</li>';
+        return;
+      }
+
+      for (let i = 1; i <= 10; i++) {
+        const li = document.createElement('li');
+        li.textContent = `${num} × ${i} = ${num * i}`;
+        resultArea.appendChild(li);
+      }
+    }
+  </script>
+</body>
+</html>

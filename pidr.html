@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/form4.css">
+</head>
+<body>
+  <h2>Знаходження підрядка у рядку</h2>
+
+  <label>Введіть основний рядок:</label><br>
+  <input type="number" id="numberInput" placeholder="Введіть рядок" min="0" class="styled-input"><br><br>
+
+  <label>Введіть підрядок для пошуку:</label><br>
+  <input type="number" id="numberInput" placeholder="Введіть підрядок" min="0" class="styled-input"><br><br>
+
+  <button class="button-36" id="analyzeBtn">Перевірити</button>
+
+  <h3>Результат:</h3>
+  <p id="result"></p>
+
+  <script>
+    function findSubstring() {
+      const main = document.getElementById('mainString').value;
+      const sub = document.getElementById('substring').value;
+      const result = document.getElementById('result');
+
+      if (!main || !sub) {
+        result.textContent = "Заповни обидва поля.";
+        return;
+      }
+
+      if (main.includes(sub)) {
+        result.textContent = `✅ Підрядок "${sub}" знайдено в рядку.`;
+      } else {
+        result.textContent = `❌ Підрядок "${sub}" не знайдено в рядку.`;
+      }
+    }
+  </script>
+
+
+</body>
+</html>

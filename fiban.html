@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/form4.css">
+</head>
+<body>
+    <script>
+        function fibonacciSequence(n) {
+            let fibSequence = [0, 1];
+        
+            for (let i = 2; i < n; i++) {
+                fibSequence.push(fibSequence[i - 1] + fibSequence[i - 2]);
+            }
+        
+            return fibSequence;
+        }
+        
+        let n = parseInt(prompt("Введіть довжину послідовності Фібоначчі:",));
+        let result = fibonacciSequence(n);
+        
+        document.write(`<p>Послідовність Фібоначчі до ${n}: ${result.join(', ')}</p>`);
+        
+            </script>
+</body>
+</html>
